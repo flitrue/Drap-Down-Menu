@@ -1,0 +1,43 @@
+<view>
+  <!-- 一级菜单 -->
+  <view class="nav">
+    <view class="nav-son borders {{naviIndex == 0? 'active' : ''}}" bindtap="list" data-nav="0">
+      <view class="content">户型</view>
+      <view class="icon"></view>
+    </view>
+    <view class="nav-son borders {{naviIndex == 1? 'active' : ''}}" bindtap="list" data-nav="1">
+      <view class="content">阶段</view>
+      <view class="icon"></view>
+    </view>
+    <view class="nav-son {{naviIndex == 2? 'active' : ''}}" bindtap="list" data-nav="2">
+      <view class="content">风格</view>
+      <view class="icon"></view>
+    </view>
+  </view>
+  <!-- 子菜单 -->
+  <view wx:for="{{menu}}" class="sub-menu {{open[index] ? 'slidown' : 'slidup'}} {{!show[index] ? 'disappear':''}}">
+    <view wx:for="{{menu[naviIndex]}}" class="{{highlight[index][idx]}}" wx:key="*this" bindtap="subMenuTapped" data-navi-index="{{naviIndex}}" data-row-index="{{idx}}">
+      {{item}}
+    </view>
+  </view>
+  <!-- 背景遮罩 -->
+  <view class="{{isMasked ?'full-bg full-opacity':''}}" bindtap="hideBackground"></view>
+</view>
+<view class="row" wx:for="{{progressList}}" wx:key="" wx:for-item="progress">
+  <scroll-view class="thumb" scroll-x="true" scroll-y="true">
+    <view wx:for="{{progress.images}}" class="image-container" wx:key="" wx:for-index="idx" bindtap="previewImage" data-index="{{index}}" data-current="{{idx}}">
+      <image src="{{item.url}}" mode="aspectFill" />
+    </view>
+  </scroll-view>
+  <view class="main">
+    <view class="stage">{{progress.stage}}</view>
+    <view class="title">
+      {{progress.title}}
+    </view>
+  </view>
+  <view class="sub">
+    <view class="subtitle">
+      {{progress.createdAt}}
+    </view>
+  </view>
+</view>

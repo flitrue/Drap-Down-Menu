@@ -1,0 +1,119 @@
+/*下拉组件*/
+
+
+.nav {
+  position: relative;
+  z-index: 99;
+  display: flex;
+  border-top: 1px solid #d1d3d4;
+  border-bottom: 1px solid #d1d3d4;
+  background: #fff;
+}
+
+.nav-son {
+  display: flex;
+  flex: 1;
+  text-align: center;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.borders {
+  border-left: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+}
+
+.content {
+  display: inline-block;
+}
+
+.icon {
+  display: inline-block;
+  border: 4px solid transparent;
+  border-top: 4px solid #9b9b9b;
+  margin-left: 5px;
+}
+
+.sub-menu {
+  position: fixed;
+  z-index: 4;
+  display: none;
+  width: 100%;
+  max-height: 306px;
+  overflow-y: scroll;
+  padding: 0 0 0 20rpx;
+  line-height: 100rpx;
+  background: #fff;
+}
+
+.slidedown {
+  transform: translateY(0%);
+}
+
+.sub-menu view {
+  border-bottom: 1px solid #d1d3d4;
+  font-size: 14px;
+  /*color: #666;*/
+}
+
+.full-bg {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgb(1, 1, 1);
+  transition: all .3s;
+  opacity: 0;
+}
+
+.full-opacity {
+  opacity: .5;
+}
+
+.nav-son.active .content {
+  color: #48c23d;
+}
+
+.nav-son.active .icon {
+  border-bottom: 4px solid #61beff;
+  border-top: 0;
+}
+
+@keyframes slidown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+
+.slidown {
+  display: block;
+  animation: slidown .3s ease-in both;
+}
+
+@keyframes slidup {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.slidup {
+  display: block;
+  animation: slidup .5s ease-in both;
+}
+
+.disappear {
+  display: none;
+}
+
+.highlight {
+  color: #48c23d;
+}
